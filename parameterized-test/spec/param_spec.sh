@@ -12,4 +12,13 @@ Describe 'how to use Parameters'
       The output should eq "$4"
     End
   End
+
+  Context 'value'
+    Parameters:value foo var baz
+
+    It "test param length"
+      When call echo "$1"
+      The length of output should equal 3
+    End
+  End
 End
