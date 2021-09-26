@@ -21,4 +21,21 @@ Describe 'how to use Parameters'
       The length of output should equal 3
     End
   End
+
+  Context 'matrix'
+    Parameters:matrix
+      foo bar baz
+      hoge fuga
+      7
+    End
+
+    myfunc() {
+      echo "$1$2";
+    }
+
+    It "test expanded matrix"
+      When call myfunc $1 $2
+      The length of output should equal $3
+    End
+  End
 End
