@@ -38,4 +38,18 @@ Describe 'how to use Parameters'
       The length of output should equal $3
     End
   End
+
+  Context 'dynamic'
+    double() { echo 2*$1; }
+    Parameters:dynamic
+      for i in {1..10}; do
+        %data "case #$i" "$i" "2*$i"
+      done
+    End
+
+    It "tests dynamic parameters $1"
+      When call double $2
+      The output should eq $3
+    End
+  End
 End
