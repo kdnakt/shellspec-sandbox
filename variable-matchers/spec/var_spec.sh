@@ -15,6 +15,7 @@ Describe 'variable matchers'
     It 'matches predefined variable'
       When call myfunc bar
       The variable MYVAR should equal foobar
+      The variable MYVAR should not be exported
     End
   End
 End
